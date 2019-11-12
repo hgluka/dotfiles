@@ -1,0 +1,14 @@
+set group_list
+for window in (lsw)
+    set temp_group (xprop -id $window _NET_WM_DESKTOP)
+    set group_list $group_list (string split ' = ' $temp_group)[2]
+end
+
+for group in (seq 5)
+    switch (echo $group_list)
+    case '*'(echo -n $group)'*'
+        echo -n " "
+    case '*'
+        echo -n " "
+    end
+end

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+SWIDTH=$(xwininfo -root | grep Width | cut -d: -f2 | tr -d ' ')
+SHEIGHT=$(xwininfo -root | grep Height | cut -d: -f2 | tr -d ' ')
+
+X=$(($SWIDTH/5))
+Y=$(($SHEIGHT/3))
+
+X_OFF=$((($SWIDTH-$X)/2))
+Y_OFF=40
+
+FONT="Roboto Mono for Powerline:medium"
+
+PROMPT=""
+
+NBG=#202020
+NFG=#d9d8d8
+SBG=#1a2457
+SFG=#ffd204
+
+LINES=5
+
+dmenu_run -x $X_OFF -y $Y_OFF -w $X -l $LINES -fn "${FONT}" -p "${PROMPT}" -nb $NBG -nf $NFG -sb $NBG -sf $SFG -q -o 1
