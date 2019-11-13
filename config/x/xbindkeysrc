@@ -1,0 +1,26 @@
+"amixer set Master 5%+"
+  XF86AudioRaiseVolume + Release
+
+"amixer set Master 5%-"
+  XF86AudioLowerVolume + Release
+
+"conkyless-blur-lock 5 pixel"
+  Alt + x
+
+"urxvt"
+  Alt + Return
+
+"sudo blight"
+  Alt + m
+
+"firefox"
+  Alt + backslash
+
+"dmenu_custom"
+  Alt + r
+
+"polybar_conky options"
+  Alt + o
+
+"maim -s -b 10 -c 0.5,0.5,0.5,0.8 ~/Pictures/screenshots/$(date +%Y-%m-%d-%T).png"
+  Print
