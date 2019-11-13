@@ -2,4 +2,4 @@
 if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
     polybar_conky options
 fi
-blur-lock $1 $2
+i3lock-fancy-rapid $1 $2
