@@ -13,7 +13,7 @@ WHEIGHT=$(xdotool getactivewindow getwindowgeometry --shell | grep HEIGHT | cut 
 
 TPADDING=43
 BPADDING=20
-LPADDING=10
+LPADDING=20
 RPADDING=20
 
 case "$1" in

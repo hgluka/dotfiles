@@ -1,0 +1,84 @@
+command term urxvt
+
+ignore polybar
+ignore dmenu
+ignore conky 
+
+sticky yes
+
+autogroup 1 "urxvt,URxvt"
+autogroup 2 "Navigator,firefox"
+autogroup 3 "VirtualBox,VirtualBox"
+autogroup 3 "Keepassx2"
+autogroup 3 "neomutt,URxvt"
+autogroup 4 "cmus,URxvt"
+
+borderwidth 2
+color inactiveborder "#231f20"
+color activeborder   "#ffd204"
+
+gap         43 10 10 10
+moveamount  20
+snapdist    10
+
+
+# MENU APPEARANCE
+color font      "#d9d8d8"
+color selfont   "#ffd204"
+color menubg    "#231f20"
+
+unbind-key all
+
+bind-key MS-r restart
+
+# SIZE AND MOVEMENT
+bind-key 4-x window-maximize
+bind-key 4-y window-vmaximize
+bind-key 4-b window-hmaximize
+
+bind-key 4-h window-resize-left
+bind-key 4-j window-resize-down
+bind-key 4-k window-resize-up
+bind-key 4-l window-resize-right
+
+bind-key M-y snap tl
+bind-key M-u snap tr
+bind-key M-g snap c
+bind-key M-b snap bl
+bind-key M-n snap br
+
+bind-key M-h window-move-left
+bind-key M-j window-move-down
+bind-key M-k window-move-up
+bind-key M-l window-move-right
+
+bind-key MS-h window-move-left-big
+bind-key MS-j window-move-down-big
+bind-key MS-k window-move-up-big
+bind-key MS-l window-move-right-big
+
+bind-key M-Tab window-cycle
+bind-key MS-Tab window-rcycle
+
+bind-key M-q window-delete
+bind-key M-w window-hide
+bind-key M-e menu-window
+
+
+# GROUPS
+bind-key M-grave group-toggle-all
+
+bind-key M-1 group-toggle-1
+bind-key M-2 group-toggle-2
+bind-key M-3 group-toggle-3
+bind-key M-4 group-toggle-4
+bind-key M-5 group-toggle-5
+
+bind-key MS-1 window-movetogroup-1
+bind-key MS-2 window-movetogroup-2
+bind-key MS-3 window-movetogroup-3
+bind-key MS-4 window-movetogroup-4
+bind-key MS-5 window-movetogroup-5
+
+bind-mouse 4-1 window_move
+bind-mouse 4-3 window_resize
