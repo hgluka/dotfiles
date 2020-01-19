@@ -1,35 +1,15 @@
 #!/bin/sh
 
-userresources=$XDG_CONFIG_HOME/x/Xresources
-usermodmap=$XDG_CONFIG_HOME/x/Xmodmap
-userbindkeys=$XDG_CONFIG_HOME/x/xbindkeysrc
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
+URESOURCES=$XDG_CONFIG_HOME/x/Xresources
+UBINDKEYS=$XDG_CONFIG_HOME/x/xbindkeysrc
+CWMRC=$XDG_CONFIG_HOME/cwm/cwmrc
 
-# merge in defaults and keymaps
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f $userresources ]; then
-    xrdb -merge $userresources
-fi
-
-if [ -f $usermodmap ]; then
-    xmodmap $usermodmap
-fi
-
-if [ -f $userbindkeys ]; then
-    xbindkeys -f $userbindkeys
-fi
+xbindkeys -f $UBINDKEYS
+xrdb -merge $URESOURCES
 
 xsetroot -cursor_name left_ptr
 xset -b
-xset +fp $XDG_DATA_HOME/fonts
+xset +fp /usr/share/fonts
 
 # start some nice programs
 
@@ -42,6 +22,6 @@ fi
 
 setxkbmap -layout us,rs -variant ,latin -option grp:caps_toggle
 compton -b
-polybar_conky launch
 fehbg &
-exec cwm -c $XDG_CONFIG_HOME/cwm/cwmrc
+lemon &
+exec cwm -c $CWMRC

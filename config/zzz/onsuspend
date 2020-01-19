@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+xset s activate
+sleep 1

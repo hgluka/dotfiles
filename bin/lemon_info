@@ -1,0 +1,11 @@
+#!/bin/sh
+
+Date() {
+  DATETIME=$(date +"%R; %e. %b %Y.")
+  echo -n "$DATETIME"
+}
+
+while true; do
+  echo "%{l}  $(groups) | %{A2:cmus-remote -u:}%{A1:cmus-remote -n:}%{A3:cmus-remote -r:}$(cmus_status)%{A}%{A}%{A} %{r}$(Date) | $(redier status)  "
+  sleep 1;
+done

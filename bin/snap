@@ -5,28 +5,35 @@ help() {
     exit 1
 }
 
+FOCUSED=$(pfw)
+
 SWIDTH=$(xwininfo -root | grep Width | cut -d: -f2 | tr -d ' ')
 SHEIGHT=$(xwininfo -root | grep Height | cut -d: -f2 | tr -d ' ')
 
-WWIDTH=$(xdotool getactivewindow getwindowgeometry --shell | grep WIDTH | cut -d= -f2)
-WHEIGHT=$(xdotool getactivewindow getwindowgeometry --shell | grep HEIGHT | cut -d= -f2)
+WWIDTH=$(wattr w $FOCUSED)
+WHEIGHT=$(wattr h $FOCUSED)
 
-TPADDING=43
-BPADDING=20
-LPADDING=20
-RPADDING=20
+TPADDING=30
+BPADDING=10
+LPADDING=10
+RPADDING=10
 
 case "$1" in
     "tl")
-        xdotool getactivewindow windowmove $LPADDING $TPADDING ;;
+	    wtp $LPADDING $TPADDING $WWIDTH $WHEIGHT $FOCUSED 
+	    wmp $(wattr xy $FOCUSED) ;;
     "tr")
-        xdotool getactivewindow windowmove $(($SWIDTH-$WWIDTH-$RPADDING)) $TPADDING ;;
+	    wtp $(($SWIDTH-$WWIDTH-$RPADDING)) $TPADDING $WWIDTH $WHEIGHT $FOCUSED
+	    wmp $(wattr xy $FOCUSED) ;;
     "bl")
-        xdotool getactivewindow windowmove $LPADDING $(($SHEIGHT-$WHEIGHT-$BPADDING)) ;;
+	    wtp $LPADDING $(($SHEIGHT-$WHEIGHT-$BPADDING)) $WWIDTH $WHEIGHT $FOCUSED
+	    wmp $(wattr xy $FOCUSED) ;;
     "br")
-        xdotool getactivewindow windowmove $(($SWIDTH-$WWIDTH-$RPADDING)) $(($SHEIGHT-$WHEIGHT-$BPADDING)) ;;
+	    wtp $(($SWIDTH-$WWIDTH-$RPADDING)) $(($SHEIGHT-$WHEIGHT-$BPADDING)) $WWIDTH $WHEIGHT $FOCUSED
+	    wmp $(wattr xy $FOCUSED) ;;
     "c")
-        xdotool getactivewindow windowmove $((($SWIDTH-$WWIDTH)/2)) $((($SHEIGHT-$WHEIGHT)/2)) ;;
+	    wtp $((($SWIDTH-$WWIDTH)/2)) $((($SHEIGHT-$WHEIGHT)/2)) $WWIDTH $WHEIGHT $FOCUSED
+	    wmp $(wattr xy $FOCUSED) ;;
     *)
         help ;;
 esac

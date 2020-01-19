@@ -1,0 +1,2 @@
+#!/bin/sh
+rofi -combi-modi window,run -modi combi -show combi -display-combi "open"

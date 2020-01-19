@@ -1,0 +1,9 @@
+#!/bin/sh
+
+NBG=$(xrdb -query | awk '/^*.background/ {print $2}')
+NFG=$(xrdb -query | awk '/^*.foreground/ {print $2}')
+
+
+SWIDTH=$(xwininfo -root | grep Width | cut -d: -f2 | tr -d ' ')
+
+lemon_info | lemonbar -pd -B $NBG -F $NFG -f "RobotoMono Nerd Font" -g "$(($SWIDTH-10))x20+5+5" | sh

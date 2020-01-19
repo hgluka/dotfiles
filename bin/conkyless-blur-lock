@@ -1,5 +1,0 @@
-#!/bin/bash
-if [ "$(cat /tmp/polybar_side_panel_state)" == "open" ]; then
-    polybar_conky options
-fi
-i3lock-fancy-rapid $1 $2

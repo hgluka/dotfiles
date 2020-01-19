@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/lkh/Pictures'
+let g:netrw_dirhist_2='/home/lkh/.local/share/Klei'
+let g:netrw_dirhist_1='/home/lkh/.config/fish'
+let g:netrw_dirhist_0='/home/lkh/.config/nvim/plugins/nord-vim/colors'
+let g:netrw_dirhist_9='/home/lkh/.config/nvim/plugins/nord-vim'
+let g:netrw_dirhist_8='/home/lkh/.config/nvim/plugins'
+let g:netrw_dirhist_7='/home/lkh/.config/smplayer/file_settings'
+let g:netrw_dirhist_6='/home/lkh/.config/smplayer'
+let g:netrw_dirhist_5='/home/lkh/.bin'
+let g:netrw_dirhist_4='/home/lkh/Downloads/kiaa/11_cas'

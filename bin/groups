@@ -1,3 +1,4 @@
+#!/bin/fish
 set group_list
 for window in (lsw)
     set temp_group (xprop -id $window _NET_WM_DESKTOP)

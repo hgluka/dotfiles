@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BG=$(xrdb -query | awk '/^*.background/ {print $2"ff"}')
+FG=$(xrdb -query | awk '/^*.foreground/ {print $2"ff"}')
+VERIF=$(xrdb -query | awk '/^*.color3/ {print $2"ff"}')
+ALT_FG=$(xrdb -query | awk '/^*.color9/ {print $2"ff"}')
+
+
+i3lock \
+  -i ~/Pictures/pines_locked.png \
+  --timepos="x+120:h-120" \
+  --datepos="tx+24:ty+25" \
+  --force-clock --datestr "Type password to unlock..." \
+  --insidecolor=00000000 --ringcolor=$FG --line-uses-inside \
+  --keyhlcolor=$ALT_FG --bshlcolor=$ALT_FG --separatorcolor=00000000 \
+  --insidevercolor=00000000 --insidewrongcolor=00000000 \
+  --ringvercolor=$VERIF --ringwrongcolor=$ALT_FG --indpos="x+290:h-120" \
+  --radius=20 --ring-width=4 --noinputtext="" --veriftext="" --wrongtext="" \
+  --timecolor=$FG --datecolor=$FG

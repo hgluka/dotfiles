@@ -1,31 +1,30 @@
 command term urxvt
 
-ignore polybar
-ignore dmenu
-ignore conky 
+ignore lemonbar
+ignore rofi
 
 sticky yes
 
 autogroup 1 "urxvt,URxvt"
-autogroup 2 "Navigator,firefox"
-autogroup 3 "VirtualBox,VirtualBox"
+autogroup 2 "Navigator,Firefox"
 autogroup 3 "Keepassx2"
-autogroup 3 "neomutt,URxvt"
-autogroup 4 "cmus,URxvt"
+autogroup 4 "Steam"
+autogroup 4 "Lutris"
+autogroup 4 "Wine"
 
 borderwidth 2
-color inactiveborder "#231f20"
-color activeborder   "#ffd204"
+color inactiveborder "#2E3440"
+color activeborder   "#EBCB8B"
 
-gap         43 10 10 10
+gap         30 10 10 10
 moveamount  20
 snapdist    10
 
 
 # MENU APPEARANCE
-color font      "#d9d8d8"
-color selfont   "#ffd204"
-color menubg    "#231f20"
+color font      "#D8DEE9"
+color selfont   "#EBCB8B"
+color menubg    "#2E3440"
 
 unbind-key all
 

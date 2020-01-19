@@ -1,0 +1,37 @@
+#!/bin/bash
+
+RED_GAMMA=$(xgamma 2>&1 | awk '{print substr($3, 1, length($3)-1)}')
+
+toggle_red() {
+    if [ $RED_GAMMA = '1.000' ]; then
+        xrandr --output DisplayPort-0 --brightness 0.9
+	sleep 0.1
+        xrandr --output DisplayPort-0 --brightness 0.8
+	sleep 0.1
+        xrandr --output DisplayPort-0 --brightness 0.7
+	sleep 0.1
+        xgamma -q -rgamma 1.1 -ggamma 0.8 -bgamma 0.7
+    else
+        xgamma -q -gamma 1
+        xrandr --output DisplayPort-0 --brightness 0.8
+	sleep 0.1
+        xrandr --output DisplayPort-0 --brightness 0.9
+	sleep 0.1
+        xrandr --output DisplayPort-0 --brightness 1.0
+    fi
+}
+
+red_status() {
+    if [ $RED_GAMMA = '1.000' ]; then
+        echo "red: off"
+    else
+        echo "red: on"
+    fi
+}
+
+case "$1" in
+    status)
+        red_status;;
+    toggle)
+        toggle_red;;
+esac
